@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio do Restaurante</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            min-height: 100vh; /* Garante que o corpo da página ocupe pelo menos a altura da tela */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilos do cabeçalho */
+        header {
+            background-color: #007acc;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos do main */
+        main {
+            padding: 20px;
+            flex: 1; /* Faz com que o main ocupe o espaço restante disponível */
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Estilos dos pratos */
+        .dish {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 100%; /* Faz com que a largura se ajuste ao contêiner */
+        }
+
+        .dish:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dish img {
+            width: 100%; /* Ajusta a imagem para ocupar a largura do contêiner */
+            height: 200px; /* Define uma altura fixa para todas as imagens */
+            object-fit: cover; /* Garante que a imagem preencha a área sem distorção */
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .dish h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .dish p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005a9c;
+        }
+
+        /* Estilos do rodapé */
+        footer {
+            background-color: #007acc;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cardápio do Restaurante</h1>
+    </header>
+    <main>
+        <section class="menu">
+            <article class="dish" id="dish1">
+                <img src="https://blog.supernosso.com/wp-content/uploads/imagensgpt/gpt-544png-1024x510." alt="Feijoada" class="dish-image">
+                <h2>Prato 1: Feijoada</h2>
+                <p>Feijoada é um prato típico brasileiro feito com feijão preto e uma variedade de carnes, servido com arroz, couve e laranja.</p>
+                <button onclick="readDescription('dish1')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish2">
+                <img src="https://www.receiteria.com.br/wp-content/uploads/sushi.jpg" alt="Sushi" class="dish-image">
+                <h2>Prato 2: Sushi</h2>
+                <p>Sushi é um prato japonês que consiste em arroz temperado com vinagre, combinado com peixe cru, vegetais e outros ingredientes.</p>
+                <button onclick="readDescription('dish2')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish3">
+                <img src="https://s2-receitas.glbimg.com/wb7DIMyCpEyV07sTAtcDWD8HQjw=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2024/h/r/EfCbvqTbeDRAD3Lzc5xA/pizza-margherita.jpg" alt="Pizza Margherita" class="dish-image">
+                <h2>Prato 3: Pizza Margherita</h2>
+                <p>Pizza Margherita é uma pizza tradicional italiana com molho de tomate, mussarela, manjericão e um fio de azeite.</p>
+                <button onclick="readDescription('dish3')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish4">
+                <img src="https://naminhapanela.com/wp-content/uploads/2023/09/Taco-mexicano-3-720x405.jpg" alt="Tacos" class="dish-image">
+                <h2>Prato 4: Tacos</h2>
+                <p>Tacos são pratos mexicanos feitos com tortillas recheadas com carne, frango, vegetais e cobertos com salsa e guacamole.</p>
+                <button onclick="readDescription('dish4')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish5">
+                <img src="https://static.itdg.com.br/images/auto-auto/4385791cd08548ba199a3b7e03c2407b/shutterstock-476867677.jpg" alt="Curry" class="dish-image">
+                <h2>Prato 5: Curry</h2>
+                <p>Curry é um prato indiano preparado com uma mistura de especiarias e pode incluir carne, frango ou vegetais, servido com arroz.</p>
+                <button onclick="readDescription('dish5')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish6">
+                <img src="https://www.saboresajinomoto.com.br/uploads/images/recipes/Lasanha_tradicional.webp" alt="Lasanha" class="dish-image">
+                <h2>Prato 6: Lasanha</h2>
+                <p>Lasanha é um prato italiano com camadas de massa intercaladas com carne moída, molho de tomate e queijo.</p>
+                <button onclick="readDescription('dish6')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish7">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SgrbB8dPr81hOVM8wxc7cDcIbxt8TXXzLA&s" alt="Pad Thai" class="dish-image">
+                <h2>Prato 7: Pad Thai</h2>
+                <p>Pad Thai é um prato tailandês de macarrão frito com camarões, tofu, amendoim e molho de tamarindo.</p>
+                <button onclick="readDescription('dish7')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish8">
+                <img src="https://www.sabornamesa.com.br/media/k2/items/cache/073c82ca8424ec43733d48fbcd8ed116_XL.jpg" alt="Bife Wellington" class="dish-image">
+                <h2>Prato 8: Bife Wellington</h2>
+                <p>Bife Wellington é um prato sofisticado com filé mignon coberto com patê e envolto em massa folhada.</p>
+                <button onclick="readDescription('dish8')">Ouvir Descrição</button>
+            </article>
+            <article class="dish" id="dish9">
+                <img src="https://renata.com.br/images/receitas/375/renata-imagem-receitas-salada-de-macarrao-light-com-frango-share.jpg" alt="Salada de Macarrão" class="dish-image">
+                <h2>Prato 9: Salada de Macarrão</h2>
+                <p>Salada de Macarrão é uma refeição leve com macarrão misturado com vegetais frescos e um molho leve.</p>
+                <button onclick="readDescription('dish9')">Ouvir Descrição</button>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Restaurante Exemplo. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        function readDescription(dishId) {
+            var descriptions = {
+                'dish1': 'Feijoada é um prato típico brasileiro feito com feijão preto e uma variedade de carnes, servido com arroz, couve e laranja.',
+                'dish2': 'Sushi é um prato japonês que consiste em arroz temperado com vinagre, combinado com peixe cru, vegetais e outros ingredientes.',
+                'dish3': 'Pizza Margherita é uma pizza tradicional italiana com molho de tomate, mussarela, manjericão e um fio de azeite.',
+                'dish4': 'Tacos são pratos mexicanos feitos com tortillas recheadas com carne, frango, vegetais e cobertos com salsa e guacamole.',
+                'dish5': 'Curry é um prato indiano preparado com uma mistura de especiarias e pode incluir carne, frango ou vegetais, servido com arroz.',
+                'dish6': 'Lasanha é um prato italiano com camadas de massa intercaladas com carne moída, molho de tomate e queijo.',
+                'dish7': 'Pad Thai é um prato tailandês de macarrão frito com camarões, tofu, amendoim e molho de tamarindo.',
+                'dish8': 'Bife Wellington é um prato sofisticado com filé mignon coberto com patê e envolto em massa folhada.',
+                'dish9': 'Salada de Macarrão é uma refeição leve com macarrão misturado com vegetais frescos e um molho leve.'
+            };
+            var description = descriptions[dishId];
+            if (description) {
+                var utterance = new SpeechSynthesisUtterance(description);
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Descrição não encontrada.');
+            }
+        }
+    </script>
+</body>
+</html>
